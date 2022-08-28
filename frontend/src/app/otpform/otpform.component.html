@@ -1,0 +1,20 @@
+<form #Form="ngForm">
+
+
+    
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Enter OTP</label>
+      <input [(ngModel)]="UserData.otp" name="otp" pattern="[0-9]{4,6}$" type="string" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter OTP received" #otp="ngModel" required>
+      <div id="emailHelp" class="form-text">Your OTP will expire within an hour</div>
+      <div class="alert-danger " *ngIf="otp.touched && !otp.valid">
+        <div *ngIf="otp.errors && otp.errors['required']">
+            <div >OTP is required</div>
+        </div>
+        <div *ngIf="otp.errors && otp.errors['pattern']">
+            <div>Enter valid OTP</div> 
+        </div>
+    </div>
+    </div>
+
+    <button type="button" (click)="checkOtp()" [disabled]="Form.form.invalid" class="btn btn-primary">Submit</button>
+  </form>

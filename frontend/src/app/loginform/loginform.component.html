@@ -1,0 +1,27 @@
+
+    
+
+<form #Form="ngForm">
+
+    <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf=errors style="color: #721c24; background-color: #f8d7da;" >
+        <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+
+        <strong>{{errors}}</strong> . Please try again.
+    </div> -->
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input [(ngModel)]="userData.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email" #email="ngModel" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div class="alert-danger " *ngIf="email.touched && !email.valid">
+        <div *ngIf="email.errors && email.errors['required']">
+            <div >Email is required</div>
+        </div>
+        <div *ngIf="email.errors && email.errors['pattern']">
+            <div>Enter valid Email</div> 
+        </div>
+    </div>
+    </div>
+
+    <button type="button" (click)="sendOtp()" [disabled]="Form.form.invalid" class="btn btn-primary">Submit</button>
+  </form>

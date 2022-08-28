@@ -1,0 +1,13 @@
+form{
+    width: 40%;
+    margin: auto;
+    margin-top : 250px;
+}
+
+.alert-danger{
+    font-size: small;
+    background-color: white;
+    color: red;
+    font-weight:600;
+}
+
